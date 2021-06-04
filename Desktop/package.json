@@ -1,0 +1,16 @@
+{
+  "name": "fullstackjs-desktop",
+  "version": "1.0.0",
+  "description": "Aplicacion de Electron",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder -w"
+  },
+  "author": "Francis Ferri",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.4.4",
+    "electron-builder": "^22.11.5"
+  }
+}
