@@ -7,23 +7,27 @@ import Pacientes from "./components/Pacientes";
 import NuevaCita from "./components/NuevaCita";
 import Cita from "./components/Cita";
 
+let initState = [
+	{
+		_id: "60b9a702f1e1f60ebc7f6aa4",
+		nombre: "Summer",
+		propietario: "Juan",
+		fecha: "2021-06-10",
+		hora: "15:07",
+		telefono: "09987654",
+		sintomas: "Sick"
+	}
+];
+
+if (process.env.PROD) {
+	initState = [];
+}
+
 function App() {
 	// State de la app
-	const [citas, guardarCitas] = useState([
-		{
-			_id: "60b9a702f1e1f60ebc7f6aa4",
-			nombre: "Summer",
-			propietario: "Juan",
-			fecha: "2021-06-10",
-			hora: "15:07",
-			telefono: "09987654",
-			sintomas: "Sick"
-		}
-	]);
+	const [citas, guardarCitas] = useState(initState);
 	// Se agrego la bvariable consultar para que no de problemas en github pages
-	const [consultar, guardarConsultar] = useState(
-		process.env.CONSULTAR || false
-	);
+	const [consultar, guardarConsultar] = useState(process.env.PROD || false);
 	useEffect(() => {
 		if (consultar) {
 			const consultarAPI = () => {
